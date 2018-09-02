@@ -9,7 +9,7 @@
       "memory": 128
     },
     {
-      "name": "api",
+      "name": "server",
       "image": "filipemonteiro/multi-server",
       "hostname": "api",
       "essential": false,
@@ -26,15 +26,15 @@
       "name": "nginx",
       "image": "filipemonteiro/multi-nginx",
       "hostname": "nginx",
-      "memory": 128,
+      "essential": true,
       "portMappings": [
         {
           "hostPort": 80,
           "containerPort": 80
         }
       ],
-      "essential": true,
-      "links": ["client", "api"]
+      "links": ["client", "server"],
+      "memory": 128
     }
   ]
 }
